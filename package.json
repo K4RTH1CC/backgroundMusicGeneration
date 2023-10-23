@@ -3,7 +3,9 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start"
+    "start": "next start",
+    "build-css": "tailwindcss build -i components/tailwindRef.css -o styles/global.css",
+    "css-dev": "npm run build-css && next dev"
   },
   "dependencies": {
     "next": "latest",
