@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { useState } from 'react';
-import FormData from "FormData";
+import axios from "axios";
 
 function HomePage(){
     
@@ -15,30 +15,27 @@ function HomePage(){
         formData.append('image', file);
     
         try {
-          const response = await fetch('http://localhost:8000', {
-            method: 'POST',
-            body: formData,
+          const response = await axios.post('http://localhost:5000', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
           });
     
-          if (response.ok) {
-            // Handle success
-            console.log('Image uploaded successfully.');
-          } else {
-            // Handle error
-            console.error('Image upload failed.');
-          }
+          // Handle success
+          console.log('Image uploaded successfully:', response.data);
         } catch (error) {
-          console.error('Network error:', error);
+          // Handle error
+          console.error('Image upload failed:', error);
         }
       };
 
     return (
         <Fragment>
             <div className="mt-40">
-                <form onSubmit={handleFormSubmit}>
+                <form onSubmit={handleFormSubmit} encType="multipart/form-data">
                     <div className="justify-evenly">
                         <label className="text-black">Upload Image:</label>
-                        <input type='file' name='image' onChange={handleFileChange}/>
+                        <input type='file' name='image' onChange={handleFileChange} required/>
                     </div>
                     <button className="mt-3" type="submit">
                         Upload
