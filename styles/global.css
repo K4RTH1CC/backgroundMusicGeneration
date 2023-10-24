@@ -546,6 +546,14 @@ video {
   z-index: 50;
 }
 
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-40 {
+  margin-top: 10rem;
+}
+
 .flex {
   display: flex;
 }
@@ -562,6 +570,10 @@ video {
   justify-content: flex-start;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .bg-gray-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
@@ -569,4 +581,9 @@ video {
 
 .p-4 {
   padding: 1rem;
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
