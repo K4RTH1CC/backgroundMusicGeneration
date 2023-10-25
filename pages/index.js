@@ -33,9 +33,9 @@ function HomePage(){
         <Fragment>
             <div className="mt-40">
                 <form onSubmit={handleFormSubmit} encType="multipart/form-data">
-                    <div className="justify-evenly">
-                        <label className="text-black">Upload Image:</label>
-                        <input type='file' name='image' onChange={handleFileChange} required/>
+                    <div className="justify-evenly border-2 rounded-md border-gray-300">
+                        <label className="text-black border-1 rounded-l-sm border-gray-600 ">Upload Image:</label>
+                        <input type='file' name='image' onChange={handleFileChange} className="border-1 rounded-r-sm border-gray-600" required/>
                     </div>
                     <button className="mt-3" type="submit">
                         Upload
