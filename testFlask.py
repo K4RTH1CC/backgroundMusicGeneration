@@ -1,16 +1,11 @@
 from flask import Flask, request, jsonify
-from werkzeug.utils import secure_filename
-import os
+import numpy as np
+import cv2
+from PIL import Image
+import tensorflow as tf
 
 app = Flask(__name__)
-
-# Configure the upload folder
-UPLOAD_FOLDER = 'uploads'
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
-
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
+# filename = "uploads\\test.jpg"
 @app.route('/', methods=['POST'])
 def upload_file():
     if 'image' not in request.files:
@@ -23,10 +18,13 @@ def upload_file():
 
     if file:
         # Ensure a secure filename to prevent directory traversal
-        filename = secure_filename(file.filename)
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(file_path)
-        return jsonify({'message': 'File uploaded successfully', 'file_path': file_path})
+        img = Image.open(file)
+        img = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
+        # cv2.imwrite(filename,img)
+        print(img)
+
+
+        return jsonify({'message': 'File uploaded successfully'})
 
 if __name__ == '__main__':
     app.run(debug=True)
