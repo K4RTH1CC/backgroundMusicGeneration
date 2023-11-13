@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 import numpy as np
 import cv2
 from PIL import Image
-import tensorflow as tf
 
 app = Flask(__name__)
 # filename = "uploads\\test.jpg"
