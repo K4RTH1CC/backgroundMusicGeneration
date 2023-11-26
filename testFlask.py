@@ -25,5 +25,6 @@ def upload_file():
 
         return jsonify({'message': 'File uploaded successfully'})
 
+
 if __name__ == '__main__':
     app.run(debug=True)
