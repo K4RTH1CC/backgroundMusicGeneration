@@ -1,6 +1,7 @@
 body {
-    overflow-x: hidden; /* Hide horizontal scrollbar */
-    background: linear-gradient(to top left, #A4AAC8, #436484);
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
+    background: #314757;
   }
 @tailwind base;
 @tailwind components;
